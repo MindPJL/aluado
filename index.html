@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALUADO - Artista</title>
+<style>
+  /* Reset e fontes */
+  body, h1, h2, h3, p, ul, ol, li, a, button {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  body {
+    background-color: #0b0b0b; color: #eee; line-height: 1.5;
+  }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+  button { cursor: pointer; }
+
+  /* Container */
+  .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+  /* Header / Hero */
+  header { position: relative; height: 70vh; overflow: hidden; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; }
+  header img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+  header .overlay { position: absolute; inset:0; background: linear-gradient(to bottom, transparent, #0b0b0b 80%); }
+  header .content { position: relative; z-index: 2; }
+
+  header h1 { font-size: 4rem; font-weight: 800; margin-bottom: 10px; }
+  header p { font-size: 1.2rem; color: #ccc; margin-bottom: 20px; }
+
+  .btn { display: inline-block; padding: 12px 25px; border-radius: 25px; font-weight: bold; transition: 0.3s; }
+  .btn-primary { background: #1DB954; color: #000; margin: 0 5px; }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-secondary { border: 1px solid #555; margin: 0 5px; }
+  .btn-secondary:hover { background: #222; }
+
+  /* Social icons */
+  .socials { margin-top: 15px; display: flex; justify-content: center; gap: 15px; }
+  .socials a { font-size: 1.2rem; color: #ccc; transition: 0.3s; }
+  .socials a:hover { color: #1DB954; }
+
+  /* Player */
+  .player { margin-top: 20px; max-width: 400px; margin-left:auto;margin-right:auto; border-radius: 15px; overflow: hidden; border:1px solid #444; }
+
+  /* Discografia */
+  .discografia { margin-top: 60px; }
+  .discografia h2 { font-size: 2.5rem; margin-bottom: 30px; text-align:center; }
+  .albums { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+  .album-card { background: #0d0d0d; border: 1px solid #444; border-radius: 15px; width: 250px; overflow: hidden; }
+  .album-card img { height: 250px; object-fit: cover; }
+  .album-card .info { padding: 15px; }
+  .album-card h3 { font-size: 1.2rem; margin-bottom: 5px; }
+  .album-card p { font-size: 0.9rem; color: #888; margin-bottom: 10px; }
+  .album-card .links, .album-card .tracks { margin-top: 10px; display:flex; flex-wrap: wrap; gap:5px; }
+  .album-card button, .album-card a { font-size: 0.8rem; padding: 5px 8px; border-radius: 12px; border:none; cursor:pointer; transition:0.2s; }
+  .album-card button:hover, .album-card a:hover { opacity: 0.8; }
+  .tracks { display: none; margin-top: 10px; flex-direction: column; }
+  .tracks li { list-style: decimal; margin-left: 20px; color: #ccc; }
+
+
+  /* Contato */
+  .contato { margin-top: 60px; padding:30px; border:1px solid #444; border-radius:15px; max-width:700px; margin-left:auto; margin-right:auto; }
+  .contato h2 { text-align:center; font-size:2rem; margin-bottom:20px; }
+  .contato form { display:flex; flex-direction: column; gap:15px; }
+  .contato input, .contato select, .contato textarea { padding:10px; border-radius:10px; border:1px solid #555; background:#0b0b0b; color:#eee; }
+  .contato button { align-self: flex-end; background:#1DB954; color:#000; font-weight:bold; padding:12px 25px; border-radius:25px; border:none; cursor:pointer; transition:0.3s; }
+  .contato button:hover { opacity:0.9; }
+
+  /* Footer */
+  footer { text-align:center; padding:20px; margin-top:60px; color:#666; border-top:1px solid #444; font-size:0.9rem; }
+
+  @media(max-width:768px){
+    header h1{font-size:3rem;}
+    header p{font-size:1rem;}
+    .albums{flex-direction:column;align-items:center;}
+  }
+
+    /* Seção Último Lançamento */
+  .destaque {
+    margin-top: 60px;
+    text-align: center;
+  }
+
+  .destaque h2 {
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="capa1.jpg" alt="Capa do Artista">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>ALUADO</h1>
+    <p>Ouça o último single abaixo.</p>
+    <a href="https://open.spotify.com/artist/4kLaP9y0xGtswuVNUt5xUu" target="_blank" class="btn btn-primary">Ouvir Agora</a>
+    <a href="#discografia" class="btn btn-secondary">Último Lançamento</a>
+    <div class="socials">
+      <a href="https://www.instagram.com/aluadors" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@aluadors" target="_blank">TikTok</a>
+      <a href="https://www.youtube.com/@ALUADORS" target="_blank">YouTube</a>
+      <a href="https://soundcloud.com/aluado-sc" target="_blank">SoundCloud</a>
+    </div>
+    <div class="player">
+      <iframe src="https://open.spotify.com/embed/artist/4kLaP9y0xGtswuVNUt5xUu" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<section id="discografia" class="discografia">
+<h2>Discografia</h2>
+<div class="albums">
+  <div class="album-card">
+    <img src="capa2.png" alt="Último Single">
+    <div class="info">
+      <h3>Amor Passageiro</h3>
+      <p>2025</p>
+      <div class="links">
+        <a href="https://open.spotify.com/track/7m4BBVhSmoobMNwvtZzaC0?si=20af9f885d6a4390" target="_blank" style="background:#1DB954;color:#000;">Spotify</a>
+        <a href="https://youtu.be/dxJ5WliRdOg" target="_blank" style="background:#9c2121;color:#000;">YouTube</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- album 2 -->
+  <div class="album-card">
+    <img src="capa1.jpg" alt="EP">
+    <div class="info">
+      <h3>Conflitos Internos</h3>
+      <p>2025</p>
+      <div class="links">
+        <a href="https://open.spotify.com/track/1QyUHGQOgVyKhnqAsLP9vl?si=4bd162012c934e2d" target="_blank" style="background:#1DB954;color:#000;">Spotify</a>
+        <a href="https://youtu.be/apLQ6WcUAUA" target="_blank" style="background:#9c2121;color:#000;">YouTube</a>
+        <a href="https://on.soundcloud.com/aXL9LXnVJUi6LipTGZ" target="_blank" style="background:#d1540c;color:#000;">SoundCloud</a>
+      </div>
+    </div>
+  </div>
+
+
+ <!-- album 3 -->
+  <div class="album-card">
+    <img src="capa3.png" alt="EP">
+    <div class="info">
+      <h3>Talvez Eu DANCE!</h3>
+      <p>2025</p>
+      <div class="links">
+        <a href="https://youtu.be/hlJES9KJ8ic" target="_blank" style="background:#9c2121;color:#000;">YouTube</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Último Lançamento -->
+<section class="destaque">
+  <h2>Último Lançamento</h2>
+  <div id="ultimo-video"></div>
+</section>
+
+<script>
+  const API_KEY = "AIzaSyC8pm-9mHIJEB_6R8BtJi3S-bQOSqssSLs"; // coloque sua chave da API do YouTube
+  const CHANNEL_ID = "UCrR6wmAisShFoShKRPgc-xg"; // coloque o ID do canal ALUADORS
+
+  fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=1`)
+    .then(response => response.json())
+    .then(data => {
+      if(data.items && data.items.length > 0){
+        const videoId = data.items[0].id.videoId;
+        const iframe = `<iframe width="100%" height="380" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+        document.getElementById('ultimo-video').innerHTML = iframe;
+      }
+    })
+    .catch(err => console.log("Erro ao carregar vídeo:", err));
+</script>
+
+<!-- seção de contato -->
+<section class="contato">
+  <h2>Contatos</h2>
+<form action="https://formsubmit.co/aluadorscontato@gmail.com" method="POST" class="formulario-contato"
+      style="display:flex;flex-direction:column;gap:12px;max-width:420px;margin:0 auto;">
+    <select name="tipo">
+      <option>Parceria</option>
+      <option>Contratação</option>
+      <option>Outros</option>
+    </select>
+    <input type="text" name="nome" placeholder="Nome" required>
+    <input type="text" name="empresa" placeholder="Empresa / Projeto">
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="mensagem" rows="5" placeholder="Mensagem" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+  <div style="margin-top:20px;">
+    <strong>Redes Oficiais:</strong>
+    <div style="display:flex;gap:10px;margin-top:5px;">
+      <a href="https://open.spotify.com/artist/4kLaP9y0xGtswuVNUt5xUu" target="_blank">Spotify</a>
+      <a href="https://www.instagram.com/aluadors" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@aluadors" target="_blank">TikTok</a>
+      <a href="https://www.youtube.com/@ALUADORS" target="_blank">YouTube</a>
+      <a href="https://soundcloud.com/aluado-sc" target="_blank">SoundCloud</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © 2025 ALUADORS — Todos os direitos reservados
+</footer>
+
+<script>
+function toggleTracks(button){
+  const tracks = button.nextElementSibling;
+  tracks.style.display = tracks.style.display === 'flex' ? 'none' : 'flex';
+}
+</script>
+
+</body>
+</html>
